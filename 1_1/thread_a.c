@@ -1,7 +1,6 @@
 #define _GNU_SOURCE
 #include <stdio.h>
 #include <pthread.h>
-#include <string.h>
 #include <sys/types.h>
 #include <unistd.h>
 
@@ -17,9 +16,7 @@ enum return_code {
 };
 
 void* mythread(void* arg) {
-    size_t thread_num = (size_t) arg;
-    printf("thread %zu | %7d | %7d | %7d | %7lu\n",
-           thread_num, getpid(), getppid(), gettid(), pthread_self());
+    printf("  thread | %7d | %7d | %7d\n", getpid(), getppid(), gettid());
     return NULL;
 }
 
@@ -39,4 +36,3 @@ int main(void) {
     pthread_exit(NULL);
     return SUCCESS;
 }
-
