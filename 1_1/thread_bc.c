@@ -48,6 +48,7 @@ int main(void) {
 
     for (size_t i = 0; i < THREAD_NUM; i++) {
         int status = pthread_create(&tid[i], NULL, mythread, (void*) i);
+        printf("Create %zu:%lu\n", i, tid[i]);
         if (status != SUCCESS) {
             PRINT_LOG("Failed to create thread %zu : %s", i, strerror(status));
             return ERROR;
@@ -57,5 +58,4 @@ int main(void) {
     pthread_exit(NULL);
     return SUCCESS;
 }
-
 
