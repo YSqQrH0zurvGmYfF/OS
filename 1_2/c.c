@@ -13,6 +13,11 @@ static const char* MSG = "hello world";
 
 void* mythread(void* arg) {
     char* str = malloc(sizeof(char) * (strlen(MSG) + 1));
+    if (str == NULL) {
+        perror("Str allocation failed");
+        return NULL;
+    }
+    
     strcpy(str, MSG);
     return str;
 }
@@ -34,8 +39,9 @@ int main(void) {
         return EXIT_FAILURE;
     }
     
-    puts(thread_result);
-    free(thread_result);
+    if (thread_result != NULL) {
+        puts(thread_result);
+        free(thread_result);
+    }
     return EXIT_SUCCESS;
 }
-
