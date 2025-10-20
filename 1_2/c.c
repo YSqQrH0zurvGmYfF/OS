@@ -9,8 +9,12 @@
 
 #include "utils.h"
 
+static const char* MSG = "hello world";
+
 void* mythread(void* arg) {
-    return (void*) "hello world";
+    char* str = malloc(sizeof(char) * (strlen(MSG) + 1));
+    strcpy(str, MSG);
+    return str;
 }
 
 int main(void) {
@@ -31,6 +35,7 @@ int main(void) {
     }
     
     puts(thread_result);
+    free(thread_result);
     return EXIT_SUCCESS;
 }
 
