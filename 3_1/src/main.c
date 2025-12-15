@@ -16,7 +16,6 @@
 #include "threadpool.h"
 
 const size_t DEFAULT_THREAD_NUM = 6;
-const size_t DEFAULT_QUEUE_LEN = 2048;
 
 
 typedef struct {
@@ -153,7 +152,6 @@ int main(int argc, char **argv) {
 
     tp_conf_t conf;
     conf.thread_num = DEFAULT_THREAD_NUM;
-    conf.queue_len = DEFAULT_QUEUE_LEN;
     conf.handler = tp_handler;
 
     tp_t* pool = NULL;

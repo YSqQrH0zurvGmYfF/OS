@@ -17,7 +17,7 @@ typedef struct tp tp_t;
 
 typedef struct {
     size_t thread_num;
-    size_t queue_len;
+    // size_t queue_len;
 
     void (*handler)(void*);
 } tp_conf_t;
