@@ -113,8 +113,7 @@ int tp_init(tp_t** p, const tp_conf_t* conf) {
         int status = pthread_create(&pool->threads[i], NULL,
                                     tp_thread, (void*)pool);
         if(status != SUCCESS) { 
-            // Handle partial failure
-            pool->shutdown = 1; // Signal started threads to stop
+            pool->shutdown = 1;
             tp_destroy(pool); 
             return TP_THREAD_START_FAILURE; 
         }
