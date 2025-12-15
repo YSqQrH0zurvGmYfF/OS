@@ -5,7 +5,7 @@ SRCS := $(notdir $(wildcard *.c))
 
 LIBS := -pthread
 
-override CFLAGS += -g -Wall
+override CFLAGS += -g -Wall -Wextra -Wpedantic
 
 all: default delay
 

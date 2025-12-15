@@ -41,7 +41,7 @@ typedef struct _Queue {
 } queue_t;
 
 queue_t* queue_init(int max_count);
-void queue_destroy(queue_t *q);
+int queue_destroy(queue_t* q);
 int queue_add(queue_t *q, int val);
 int queue_get(queue_t *q, int *val);
 void queue_print_stats(queue_t *q);
